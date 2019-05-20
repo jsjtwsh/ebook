@@ -155,8 +155,10 @@ export default {
     },
     // 电子书的解析和渲染
     showEpub () {
+      console.log(new Date(), '开始')
       // 生成Book
       this.book = new Epub(DOWNLOAD_URL)
+      console.log(new Date(), '实例化完成')
       // 生成Rendition,通过Book.renderTo
       this.rendition = this.book.renderTo('read', {
         width: window.innerWidth,
@@ -164,6 +166,7 @@ export default {
       })
       // 通过rendtion.display渲染电子书
       this.rendition.display()
+      console.log(new Date(), '显示')
       // 获取Theme对象
       this.themes = this.rendition.themes
       // 设置默认字体
